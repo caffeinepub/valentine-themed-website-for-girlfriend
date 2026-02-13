@@ -1,0 +1,257 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 17,
+  "summary": "Shift scope to a beautiful, interactive personal/Valentine website for Simran with romantic aesthetic (rose gold/cream/deep wine red), cursor-follow hearts animation, interactive Ask buttons (with No button positioned below Yes), memory lane photo gallery (5 upload slots), virtual gift box interaction, mobile-friendly layout, and deployment to a live URL.",
+  "architectural_notes": [
+    "Personalization content: set sender name to \"Chirage\" and girlfriend/recipient name to \"Simran\" in the editable content configuration.",
+    "Main love letter text should be set to: \"I Always Love You When No One IS Around You REMEMBER MY NAME I WILL ALWAYS THERE FOR YOU, MY SMALL LITTLE CHOTU SA ITTU SA AND SORRY FOR EVERY MISTAKE OF MINE AND YES I AM YOUR CHOTA ONLY\".",
+    "Add a separate section with this message: \"ME CHOTU SI BACCHI I WILL ALWAYS LOVE YOU , LAI LIYA PRINCESS TREATMENT ? HAPPYY , YAYYYYYYYYY\".",
+    "Theme palette target: soft rose gold, cream, deep wine red.",
+    "Add cursor-follow floating hearts animation.",
+    "Ask section button behaviors: Yes grows on hover; No evades clicks (jumps away).",
+    "Add a 'Memory Lane' photo gallery with user-uploadable images and per-image captions.",
+    "Virtual gift box: confetti animation + display a 'Love Coupon' reward card.",
+    "Ask section layout: position the “No” button below/under the “Yes” button (not overlapping/on top of it).",
+    "Memory Lane gallery: provide exactly 5 image upload slots (not 7–8)."
+  ],
+  "known_issues": [
+    "Potential requirement conflict: prior request to remove all portrait/girlfriend photos vs new request to add an uploadable photo gallery ('Our Memory Lane')."
+  ],
+  "isFixRequest": true,
+  "existing_features": [
+    {
+      "id": "feature-create-a-responsive-single-page-valentine-themed-website-intended-as-a-romantic-gift-for-the-user-s-girlfriend",
+      "title": "Create a responsive, single-page Valentine-themed website intended as a romantic gift for the user's girlfriend.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-an-easy-to-edit-content-configuration-single-ts-object-or-json-like-structure-in-the-frontend-code-to-customize-names-a-short-love-letter-a-list-of-reasons-compliments-and-a-final-call-to-action-message",
+      "title": "Add an easy-to-edit content configuration (single TS object or JSON-like structure in the frontend code) to customize names, a short love letter, a list of reasons/compliments, and a final call-to-action message.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-cohesive-valentine-visual-theme-colors-typography-spacing-and-component-styling-with-a-distinct-style-that-is-applied-consistently-across-the-page-avoid-a-generic-default-look",
+      "title": "Implement a cohesive Valentine visual theme (colors, typography, spacing, and component styling) with a distinct style that is applied consistently across the page (avoid a generic default look).",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-polished-sections-and-interactions-appropriate-for-a-valentine-gift-page-hero-header-love-letter-section-reasons-i-love-you-list-and-a-closing-section-with-a-prominent-button-e-g-will-you-be-my-valentine-that-triggers-a-sweet-on-page-response-animation",
+      "title": "Add polished sections and interactions appropriate for a Valentine gift page: hero header, love letter section, “reasons I love you” list, and a closing section with a prominent button (e.g., “Will you be my Valentine?”) that triggers a sweet on-page response/animation.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-generate-and-include-custom-static-image-assets-for-the-valentine-theme-and-render-them-in-the-ui-from-frontend-public-assets-generated-do-not-serve-generated-images-through-the-backend",
+      "title": "Generate and include custom static image assets for the Valentine theme and render them in the UI from frontend/public/assets/generated (do not serve generated images through the backend).",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-editable-content-configuration-to-set-the-sender-name-to-chirage-and-the-recipient-name-to-simran-so-the-valentine-page-displays-these-names-wherever-the-configured-names-are-used",
+      "title": "Update the editable content configuration to set the sender name to \"Chirage\" and the recipient name to \"Simran\" so the Valentine page displays these names wherever the configured names are used.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-main-love-letter-section-content-in-frontend-src-content-valentinecontent-ts-so-it-displays-the-user-s-provided-message-rewritten-into-clear-english-while-preserving-the-meaning-as-the-primary-love-letter-shown-in-lovelettersection",
+      "title": "Update the main Love Letter section content in `frontend/src/content/valentineContent.ts` so it displays the user's provided message (rewritten into clear English while preserving the meaning), as the primary love letter shown in `LoveLetterSection`.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-new-separate-on-page-section-for-an-additional-short-message-using-new-fields-in-frontend-src-content-valentinecontent-ts-and-a-new-valentine-component-composed-into-frontend-src-components-valentine-valentinepage-tsx-the-separate-section-must-display-an-english-version-of-the-user-s-provided-short-message",
+      "title": "Add a new, separate on-page section for an additional short message using new fields in `frontend/src/content/valentineContent.ts` and a new Valentine component (composed into `frontend/src/components/valentine/ValentinePage.tsx`). The separate section must display an English version of the user's provided short message.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-the-user-provided-girlfriend-photo-to-the-valentine-page-as-a-static-image-asset-and-display-it-in-the-ui-in-a-polished-way-that-matches-the-existing-valentine-theme-e-g-a-rounded-portrait-card-with-subtle-shadow-and-border",
+      "title": "Add the user-provided girlfriend photo to the Valentine page as a static image asset, and display it in the UI in a polished way that matches the existing Valentine theme (e.g., a rounded portrait card with subtle shadow and border).",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-post-cta-yes-modal-text-so-that-after-clicking-the-yes-button-the-sweet-response-message-is-shown-in-clear-english-while-preserving-the-playful-intent-of-the-user-s-message-yayyyyyy-i-am-your-and-you-are-my-litte-both-little-yayyyyyyyyy",
+      "title": "Update the post-CTA (\"Yes\") modal text so that after clicking the Yes button, the sweet response message is shown in clear English while preserving the playful intent of the user’s message: \"Yayyyyyy i am your and you are my litte both little yayyyyyyyyy\".",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-the-portrait-image-from-the-valentine-page-so-no-girlfriend-photo-or-any-portrait-image-asset-is-displayed-anywhere-in-the-ui",
+      "title": "Remove the portrait image from the Valentine page so no girlfriend photo (or any portrait image asset) is displayed anywhere in the UI.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-or-retire-the-girlfriendphotosection-component-and-eliminate-any-remaining-references-to-the-portrait-image-asset-path-assets-generated-simran-photo-dim-900x1200-jpg-from-the-frontend-codebase",
+      "title": "Remove or retire the `GirlfriendPhotoSection` component and eliminate any remaining references to the portrait image asset path `/assets/generated/simran-photo.dim_900x1200.jpg` from the frontend codebase.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-publish-the-latest-successful-build-of-the-valentine-single-page-site-to-the-permanent-live-url-by-triggering-the-platform-push-live-flow-as-soon-as-it-is-available-for-this-project",
+      "title": "Publish the latest successful build of the Valentine single-page site to the permanent live URL by triggering the platform \"Push Live\" flow as soon as it is available for this project.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-valentine-site-s-editable-content-configuration-frontend-src-content-valentinecontent-ts-to-match-the-user-s-requested-hero-copy-and-add-new-config-fields-needed-for-the-new-sections-1-hero-title-for-simran-my-favourite-person-and-subtitle-a-digital-space-dedicated-to-us-2-memory-lane-gallery-item-captions-e-g-our-first-date-that-one-rainy-day-3-playlist-section-title-the-soundtrack-of-us-and-a-configurable-embed-url-string-for-the-player-4-virtual-gift-box-section-title-button-label-and-the-love-coupon-text-e-g-dinner-date-or-shopping-spree",
+      "title": "Update the Valentine site’s editable content configuration (`frontend/src/content/valentineContent.ts`) to match the user’s requested hero copy and add new config fields needed for the new sections: (1) Hero title: \"For Simran: My Favourite Person\" and subtitle: \"A digital space dedicated to us.\" (2) Memory Lane gallery item captions (e.g., \"Our first date\", \"That one rainy day\"). (3) Playlist section title: \"The Soundtrack of Us\" and a configurable embed URL/string for the player. (4) Virtual Gift Box section title/button label and the \"Love Coupon\" text (e.g., dinner date or shopping spree).",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-cursor-following-floating-hearts-effect-that-emits-small-heart-particles-near-the-cursor-finger-position-as-the-user-moves-across-the-page-and-integrate-it-into-the-page-so-it-is-active-during-normal-browsing-not-only-after-clicking-the-cta-the-effect-must-not-block-clicks-taps-and-must-be-performant-on-mobile",
+      "title": "Implement a cursor-following floating hearts effect that emits small heart particles near the cursor/finger position as the user moves across the page, and integrate it into the page so it is active during normal browsing (not only after clicking the CTA). The effect must not block clicks/taps and must be performant on mobile.",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-replace-or-extend-the-current-closing-cta-interaction-to-implement-the-requested-ask-section-behavior-show-the-question-will-you-be-my-valentine-with-two-buttons-a-yes-button-that-grows-larger-on-hover-focus-and-a-no-button-that-jumps-away-when-the-user-tries-to-hover-tap-it-and-is-effectively-impossible-to-click-keep-the-existing-yes-success-experience-sweet-response-modal-and-celebratory-animation-when-yes-is-clicked",
+      "title": "Replace or extend the current closing CTA interaction to implement the requested “Ask” section behavior: show the question \"Will you be my Valentine?\" with two buttons: a “Yes” button that grows larger on hover/focus, and a “No” button that jumps away when the user tries to hover/tap it and is effectively impossible to click. Keep the existing “Yes” success experience (sweet response modal and celebratory animation) when “Yes” is clicked.",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-an-our-memory-lane-gallery-section-where-the-user-can-upload-multiple-photos-from-their-device-during-a-visit-and-see-them-displayed-in-a-responsive-grid-each-gallery-slot-must-show-a-small-caption-under-it-using-captions-from-the-editable-content-config-and-show-a-polished-placeholder-state-when-no-image-has-been-uploaded-for-that-slot-yet",
+      "title": "Add an “Our Memory Lane” gallery section where the user can upload multiple photos from their device during a visit and see them displayed in a responsive grid. Each gallery slot must show a small caption under it (using captions from the editable content config) and show a polished placeholder state when no image has been uploaded for that slot yet.",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-two-new-sections-to-the-page-1-simran-s-playlist-showing-a-spotify-style-embedded-player-using-a-configurable-embed-string-url-from-the-content-config-e-g-an-iframe-embed-titled-the-soundtrack-of-us-2-virtual-gift-box-featuring-a-button-that-triggers-a-confetti-animation-and-then-reveals-a-digital-love-coupon-card-containing-the-configured-reward-text-e-g-dinner-date-or-shopping-spree",
+      "title": "Add two new sections to the page: (1) “Simran’s Playlist” showing a Spotify-style embedded player using a configurable embed string/URL from the content config (e.g., an iframe embed), titled \"The Soundtrack of Us\". (2) “Virtual Gift Box” featuring a button that triggers a confetti animation and then reveals a digital “Love Coupon” card containing the configured reward text (e.g., dinner date or shopping spree).",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-closing-ask-section-so-the-no-button-is-positioned-visually-below-the-yes-button-stacked-under-it-not-overlapping-or-sitting-on-top-of-the-yes-button",
+      "title": "Update the Closing/Ask section so the “No” button is positioned visually below the “Yes” button (stacked under it), not overlapping or sitting on top of the “Yes” button.",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-reduce-the-our-memory-lane-gallery-to-exactly-5-image-upload-display-slots-by-updating-the-editable-content-configuration-and-ensuring-the-ui-renders-only-those-5-slots",
+      "title": "Reduce the “Our Memory Lane” gallery to exactly 5 image upload/display slots by updating the editable content configuration and ensuring the UI renders only those 5 slots.",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-the-song-playlist-section-from-the-valentine-page-so-it-is-no-longer-displayed-anywhere-in-the-ui",
+      "title": "Remove the song/playlist section from the Valentine page so it is no longer displayed anywhere in the UI.",
+      "reqIds": [
+        "REQ-21"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create a Valentine website for the user's girlfriend",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Update the main love letter section text to the user's provided message and add a separate section with an additional short message.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Remove the girlfriend photo/image from the Valentine page (do not include or display any portrait image asset). Keep the post-\"Yes\" click response message update separate.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Update the post-CTA (\"Yes\") response/modal text only (no image change).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Publish/deploy the Valentine website live (trigger the Push Live flow when available).",
+      "reqIds": [],
+      "status": "in_progress"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Update theme & vibe to a romantic aesthetic palette (soft rose gold, cream, deep wine red) and add a floating hearts animation that follows the cursor.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Implement Hero section copy: title 'For Simran: My Favourite Person' and sub-text 'A digital space dedicated to us.'",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Implement interactive 'Will you be my Valentine?' Ask section with a 'Yes' button that grows on hover and a 'No' button that jumps away and is impossible to click.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Add 'Our Memory Lane' photo gallery section with uploadable pictures and captions under placeholders (e.g., 'Our first date', 'That one rainy day').",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Add 'Virtual Gift Box' interaction: button triggers confetti and displays a digital 'Love Coupon' (e.g., dinner date or shopping spree).",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Interactive personal website for Simran",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

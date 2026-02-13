@@ -1,0 +1,85 @@
+{
+  "kind": "build_request",
+  "title": "Adjust Ask button layout, limit Memory Lane to 5 slots, and remove playlist section",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-19",
+      "text": "Update the Closing/Ask section so the “No” button is positioned visually below the “Yes” button (stacked under it), not overlapping or sitting on top of the “Yes” button.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-3"
+        ],
+        "quotes": [
+          "tge no button plase bring it under yes not on yes"
+        ]
+      },
+      "acceptanceCriteria": [
+        "In the Closing/Ask section UI, the “No” button renders below the “Yes” button in the normal/resting state.",
+        "The “No” button no longer overlaps the “Yes” button at any time (including initial render).",
+        "The existing “No” button dodging behavior still works (it remains effectively impossible to click), and the existing “Yes” click behavior (modal + celebration) remains unchanged.",
+        "Layout works on mobile and desktop without causing horizontal overflow or clipped buttons."
+      ]
+    },
+    {
+      "id": "REQ-20",
+      "text": "Reduce the “Our Memory Lane” gallery to exactly 5 image upload/display slots by updating the editable content configuration and ensuring the UI renders only those 5 slots.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-3"
+        ],
+        "quotes": [
+          "images folder i need you to give only 5 image place not 7-8"
+        ]
+      },
+      "acceptanceCriteria": [
+        "`frontend/src/content/valentineContent.ts` has exactly 5 entries in `memoryLane.captions`.",
+        "The Memory Lane section renders exactly 5 cards/slots and no more.",
+        "Uploading multiple images populates the first 5 slots only (no additional slots appear)."
+      ]
+    },
+    {
+      "id": "REQ-21",
+      "text": "Remove the song/playlist section from the Valentine page so it is no longer displayed anywhere in the UI.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-3"
+        ],
+        "quotes": [
+          "and the song section remove it"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The Playlist section is not rendered in `frontend/src/components/valentine/ValentinePage.tsx`.",
+        "No playlist iframe/player is visible anywhere on the site.",
+        "The page layout remains polished with appropriate spacing between adjacent sections after removal."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not edit any files under frontend/src/components/ui or any frontend immutablePaths listed in SYSTEM_CONTEXT; compose existing components instead.",
+    "Do not add new backend services or external databases; keep changes frontend-only unless strictly necessary."
+  ],
+  "nonGoals": [
+    "Do not redesign the overall Valentine theme or rewrite existing love-letter/reasons text (only requested layout/section count/removal changes).",
+    "Do not implement persistent storage for uploaded Memory Lane images (keep current per-visit behavior).",
+    "Do not change the existing “Yes” success flow beyond what is required to reposition the “No” button below it."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
+  }
+}

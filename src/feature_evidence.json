@@ -1,0 +1,60 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-update-the-closing-ask-section-so-the-no-button-is-positioned-visually-below-the-yes-button-stacked-under-it-not-overlapping-or-sitting-on-top-of-the-yes-button",
+      "featureTitle": "Update the Closing/Ask section so the “No” button is positioned visually below the “Yes” button (stacked under it), not overlapping or sitting on top of the “Yes” button.",
+      "files": [
+        "frontend/src/components/valentine/ClosingSection.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-19"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-reduce-the-our-memory-lane-gallery-to-exactly-5-image-upload-display-slots-by-updating-the-editable-content-configuration-and-ensuring-the-ui-renders-only-those-5-slots",
+      "featureTitle": "Reduce the “Our Memory Lane” gallery to exactly 5 image upload/display slots by updating the editable content configuration and ensuring the UI renders only those 5 slots.",
+      "files": [
+        "frontend/src/components/valentine/MemoryLaneSection.tsx",
+        "frontend/src/content/valentineContent.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-20"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-remove-the-song-playlist-section-from-the-valentine-page-so-it-is-no-longer-displayed-anywhere-in-the-ui",
+      "featureTitle": "Remove the song/playlist section from the Valentine page so it is no longer displayed anywhere in the UI.",
+      "files": [
+        "frontend/src/components/valentine/ValentinePage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-21"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

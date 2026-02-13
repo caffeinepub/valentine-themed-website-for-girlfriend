@@ -1,0 +1,61 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Fix Closing button layout, cap Memory Lane to 5 slots, and remove Playlist section",
+  "requirements": [
+    {
+      "id": "REQ-19",
+      "summary": "Stack the “No” button visually below “Yes” in the Closing/Ask section without breaking existing dodge/celebration behaviors.",
+      "acceptanceCriteria": [
+        "In the Closing/Ask section UI, the “No” button renders below the “Yes” button in the normal/resting state.",
+        "The “No” button no longer overlaps the “Yes” button at any time (including initial render).",
+        "The existing “No” button dodging behavior still works (it remains effectively impossible to click), and the existing “Yes” click behavior (modal + celebration) remains unchanged.",
+        "Layout works on mobile and desktop without causing horizontal overflow or clipped buttons."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/valentine/ClosingSection.tsx",
+          "operation": "modify",
+          "description": "Refactor the button layout so “Yes” and “No” are vertically stacked (with “No” in its own dedicated, below-Yes relative container) while preserving the current dodge logic (hover/touch/mousedown triggers). Ensure the “No” button uses absolute positioning only within its own below-Yes container (not the shared row), clamp random movement within that container, and set a safe initial position so it never overlaps “Yes” on first render."
+        }
+      ]
+    },
+    {
+      "id": "REQ-20",
+      "summary": "Limit Memory Lane to exactly 5 upload/display slots via content configuration and UI behavior.",
+      "acceptanceCriteria": [
+        "`frontend/src/content/valentineContent.ts` has exactly 5 entries in `memoryLane.captions`.",
+        "The Memory Lane section renders exactly 5 cards/slots and no more.",
+        "Uploading multiple images populates the first 5 slots only (no additional slots appear)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/content/valentineContent.ts",
+          "operation": "modify",
+          "description": "Reduce `valentineContent.memoryLane.captions` to exactly 5 caption strings (remove any extra entries beyond 5)."
+        },
+        {
+          "path": "frontend/src/components/valentine/MemoryLaneSection.tsx",
+          "operation": "modify",
+          "description": "Ensure the upload handler caps in-memory previews to 5 total images (ignore any beyond 5) so only the first 5 slots can ever be populated; keep rendering driven by `memoryLane.captions` so exactly 5 cards display."
+        }
+      ]
+    },
+    {
+      "id": "REQ-21",
+      "summary": "Remove the playlist/music section from the Valentine page UI so no player is visible anywhere.",
+      "acceptanceCriteria": [
+        "The Playlist section is not rendered in `frontend/src/components/valentine/ValentinePage.tsx`.",
+        "No playlist iframe/player is visible anywhere on the site.",
+        "The page layout remains polished with appropriate spacing between adjacent sections after removal."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/valentine/ValentinePage.tsx",
+          "operation": "modify",
+          "description": "Remove `PlaylistSection` import and its render call so the playlist iframe is never mounted; verify surrounding sections (Memory Lane and Virtual Gift Box) still flow with clean spacing after removal."
+        }
+      ]
+    }
+  ]
+}
